@@ -145,4 +145,4 @@ async def warn(ctx , member:discord.Member, * , reason="no reason"):
         
 
 
-bot.run("MTAzODcwMTQ4MDY4NjkxOTcwMA.G54SmR.o4LsDxUEnBz_DFWEzJi2v5WGbBbta3907qKjO4")
+bot.run("MTAzODcwMTQ4MDY4NjkxOTcwMA.GJqz1J._9GDxXqoFStXquJcueLmDw5s2OvRDnii9zP_cU")
