@@ -134,6 +134,16 @@ async def warn(ctx , member:discord.Member, * , reason="no reason"):
         await member.send(embed=emb)
     except:
         await ctx.reply(sorry())
+        
+        
+        
+        
+#----------tests------------
+@bot.command(aliases=["t"])
+async def talk(ctx, *, msg):
+    with randomstuff.Client(api_key='vzqQovLsL72J') as client:
+        response = client.get_ai_response(msg)
+        await ctx.reply(response)
 
 
 
