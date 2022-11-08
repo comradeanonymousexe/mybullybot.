@@ -5,6 +5,8 @@ from discord.ext import commands
 import asyncio
 import random
 import json
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
 
 
@@ -138,8 +140,26 @@ async def warn(ctx , member:discord.Member, * , reason="no reason"):
         
         
         
+        
+@bot.command(aliases = ["t"])
+async def talk(ctx ,* , msg):
+    message = ai_response(msg)
+    await ctx.reply(message)
+        
+#-------------test--------------
 
-
+ 
+  
+def ai_response(msg):
+    
+    chatbot=ChatBot('Sarge`s Bully')
+    trainer = ChatterBotCorpusTrainer(chatbot)
+  
+    trainer.train("chatterbot.corpus.english.greetings",
+              "chatterbot.corpus.english.conversations","chatterbot.corpus.english" )
+  
+    response = chatbot.get_response(msg)
+    return response
 
 
 
