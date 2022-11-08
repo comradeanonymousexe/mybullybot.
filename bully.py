@@ -5,6 +5,7 @@ from discord.ext import commands
 import asyncio
 import random
 import json
+import randomstuff
 
 
 intents = discord.Intents.default()
