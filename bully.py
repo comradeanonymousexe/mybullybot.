@@ -5,8 +5,8 @@ from discord.ext import commands
 import asyncio
 import random
 import json
-from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
+#from chatterbot import ChatBot
+#from chatterbot.trainers import ChatterBotCorpusTrainer
 
 
 
@@ -97,25 +97,27 @@ async def predict(ctx , member:discord.Member):
     l_m_status =  ["Bari theke paliye :person_running_tone1: ","Court marriage :man_judge_tone1: ","Baba-Mar oshommotite :unamused:"]
     love_marij = "Hmmmmm :face_with_monocle:  tumi  `Love marriage` :mending_heart:  korba  "+random.choice(l_m_status)+"  with " + random.choice(love_marij_case) + age + " bochor boyoshe."    
     marij = [love_marij,arranged_marij]  
-    marij_info = "**1.Marriage Status:** "+ random.choice(marij)+ "\n \n \n"
+    marij_info = random.choice(marij)+ "\n \n \n"
+    emb_1 = discord.Embed(color=discord.Colour.red(),title= ""**Marriage Status:**"",description=marij_info)
 
 
     edu_status = ["`Phd`","`Graduate`","`MBA`","`BBA`","`Jhore Pora Student`","`Student politician`"]
     edu_subject = ["Medical","EEE","ChuChulogy","Charukola","Computer science [UwU]","ToTo company"]
     edu_info = "**2.Education Status:** Tumi poralekha shuru korbe "+ random.choice(edu_subject) + " niye and will end up as a/an " + random.choice(edu_status) 
-
+    emb_2 = discord.Embed(color=discord.Colour.red(),title= ""**Education Status:**"",description=edu_info)
 
     baccha = str(random.randint(1,8))
     lis= ["Natural","Current er SHock kheye","Panite Dube","Life partner er hate mair kheye","Suicide :|","Otirikto gaja kheye"]
     death_stat = random.choice(lis)
     death_age = str(random.randint(32,120))
     life_end_info = f"**3.Finally:** Tumi {baccha} jon baccha rekhe {death_age} bochor boyoshe mara jabe. Mrittuta hobe {death_stat}"
+     emb_3 = discord.Embed(color=discord.Colour.red(),title= ""**Life End**"",description=life_end_info)
 
 
     try:
-        await ctx.reply(marij_info) 
-        await ctx.send(edu_info)
-        await ctx.send(life_end_info)
+        await ctx.reply(embed=emb_1) 
+        await ctx.send(embed=emb_2)
+        await ctx.send(embed=emb_3)
 
     except:
         await ctx.reply(sorry())
@@ -141,25 +143,25 @@ async def warn(ctx , member:discord.Member, * , reason="no reason"):
         
         
         
-@bot.command(aliases = ["t"])
-async def talk(ctx ,* , msg):
-    message = ai_response(msg)
-    await ctx.reply(message)
+#@bot.command(aliases = ["t"])
+#async def talk(ctx ,* , msg):
+   # message = ai_response(msg)
+   # await ctx.reply(message)
         
 #-------------test--------------
 
  
   
-def ai_response(msg):
+#def ai_response(msg):
     
-    chatbot=ChatBot('Sarge`s Bully')
-    trainer = ChatterBotCorpusTrainer(chatbot)
+    #chatbot=ChatBot('Sarge`s Bully')
+    #trainer = ChatterBotCorpusTrainer(chatbot)
   
-    trainer.train("chatterbot.corpus.english.greetings",
-              "chatterbot.corpus.english.conversations","chatterbot.corpus.english" )
+    #trainer.train("chatterbot.corpus.english.greetings",
+              #"chatterbot.corpus.english.conversations","chatterbot.corpus.english" )
   
-    response = chatbot.get_response(msg)
-    return response
+   # response = chatbot.get_response(msg)
+   #return response
 
 
 
