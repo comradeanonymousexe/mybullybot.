@@ -5,7 +5,7 @@ from discord.ext import commands
 import asyncio
 import random
 import json
-import randomstuff
+
 
 
 intents = discord.Intents.default()
@@ -138,12 +138,7 @@ async def warn(ctx , member:discord.Member, * , reason="no reason"):
         
         
         
-#----------tests------------
-@bot.command(aliases=["t"])
-async def talk(ctx, *, msg):
-    with randomstuff.Client(api_key='vzqQovLsL72J') as client:
-        response = client.get_ai_response(msg)
-        await ctx.reply(response)
+
 
 
 
